@@ -1,6 +1,5 @@
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
-// let canvas2 = canvas.addHitRegion({id: "myCanvas"});
 
 //Load images
 img1 = new Image();
@@ -46,22 +45,37 @@ function drawFunction2()
     ctx.drawImage(img1, x, y, 100, 100);
 }
 
-// click event
+// declaring variables for score
+let score;
+score = 0;
+
+// click event for bulbasaur img
 canvas.onmousedown = function (e) {
 
     if (e.clientX > x && 
-        e.clientX < x + 50 &&            
+        e.clientX < x + 100 &&            
         e.clientY > y && 
-        e.clientY < y + 50 )
-        alert("You win!!!"); 
+        e.clientY < y + 100 ){
+        score++;
+        alert("score=" + score);
+        }
 
-  // click event
+  // click event for bomb-sprite img
 
     if (e.clientX > x2 && 
         e.clientX < x2 + 100 &&            
         e.clientY > y2 && 
-        e.clientY < y2 + 100)
-        alert("You lose!");   
+        e.clientY < y2 + 100) {
+        score--;
+        alert(score); 
+        }
+
+    if (score === 10){
+      alert("YOU WIN!!");
+    }
+    else if(score < 0){
+      alert("Sorry you lose");
+    }
 }
      
 

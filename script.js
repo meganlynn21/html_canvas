@@ -15,7 +15,7 @@ ctx.drawImage(img2, canvas.width/2 - 200, canvas.height/2 - 200, 100,100);
 }
 
 // Movement
-setInterval(drawFunction, 1000);
+setInterval(drawFunction, 700);
 setInterval(drawFunction2, 1000);
 let x = 0;
 let y = 0;
@@ -57,7 +57,7 @@ canvas.onmousedown = function (e) {
         e.clientY > y && 
         e.clientY < y + 100 ){
         score++;
-        alert("score=" + score);
+        alert("score= " + score);
         }
 
   // click event for bomb-sprite img
@@ -67,13 +67,13 @@ canvas.onmousedown = function (e) {
         e.clientY > y2 && 
         e.clientY < y2 + 100) {
         score--;
-        alert(score); 
+        alert("score= " + score); 
         }
 
     if (score === 10){
       alert("YOU WIN!!");
     }
-    else if(score < 0){
+    else if(score < -1){
       alert("Sorry you lose");
     }
 }
